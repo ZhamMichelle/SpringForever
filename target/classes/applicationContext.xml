@@ -7,36 +7,7 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:property-placeholder location="classpath:musicPlayer.properties"/>
+<context:component-scan base-package="zham.smart.kz" />
 
-    <bean id="musicBean"
-          class="zham.smart.kz.ClassicalMusic"
-          init-method="doMyInit"
-          destroy-method="doMyDestruct"
-          factory-method="getClassicalMusic"
-          scope="prototype"
->
-<!--        <constructor-arg value="Zhami"/>-->
-    </bean>
-    <bean id="musicBean2"
-          class="zham.smart.kz.RockMusic">
-    </bean>
-
-
-    <bean id="musicPlayer"
-    class="zham.smart.kz.MusicPlayer"
-          scope="prototype"
-    >
-<!--        <constructor-arg ref="musicBean"/>-->
-    <property name="music" ref="musicBean"/>
-<!--    <property name="music" >-->
-<!--        <array>-->
-<!--            <ref bean="musicBean"/>-->
-<!--            <ref bean="musicBean2"/>-->
-<!--        </array>-->
-<!--    </property>-->
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
 
 </beans>

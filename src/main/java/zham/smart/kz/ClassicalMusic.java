@@ -1,7 +1,10 @@
 package zham.smart.kz;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ClassicalMusic implements Music {
-   private ClassicalMusic(){}
+   public ClassicalMusic(){}
 
     public static ClassicalMusic getClassicalMusic(){
         return new ClassicalMusic();
