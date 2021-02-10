@@ -2,13 +2,30 @@ package zham.smart.kz;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MusicPlayer {
 
-    private Music music1;
+    @Value("${musicPlayer.name}")
+    private String name;
+    @Value("${musicPlayer.volume}")
+    private int volume;
 
+
+
+    public String getName() {
+        return name;
+    }
+
+
+
+    public int getVolume() {
+        return volume;
+    }
+
+    private Music music1;
     private Music music2;
 
     @Autowired
