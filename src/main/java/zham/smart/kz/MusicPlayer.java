@@ -1,40 +1,25 @@
 package zham.smart.kz;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MusicPlayer {
-    private Music music;
 
-    private String name;
-    private int volume;
+    private Music music1;
 
-    public String getName() {
-        return name;
+    private Music music2;
+
+    @Autowired
+    public MusicPlayer(@Qualifier("classicalMusic")Music music1, @Qualifier("rockMusic")Music music2){
+        this.music1=music1;
+        this.music2=music2;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public int getVolume() {
-        return volume;
-    }
-
-    public void setVolume(int volume) {
-        this.volume = volume;
-    }
-
-    //IoC
-    public MusicPlayer(Music music){
-        this.music=music;
-    }
-
-    public MusicPlayer(){}
-
-    public void setMusic(Music music) {
-        this.music = music;
-    }
-
-    public void player()
+    public String player()
     {
-            System.out.println("playing: "+music.getSong());
+    return "playing: " + music1.getSong() + ", " + music2.getSong();
     }
 }
